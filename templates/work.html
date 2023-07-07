@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+   <section class="primary-bg fill-y">
+   {% include 'header.html' %}
+
+          <div class="container my-5 ">
+            <p class="fs-2 secondary-text heading fade-element heading-reverse ms-2">Things I have built<span class="primary-text fs-1 fw-bold"> .</span></p>
+            {% for work in works %}
+              <div class="row mt-5 project fade-element p-3">
+              <div class="col-sm-7">
+                <p class="fs-4 primary-text"><span class="secondary-text fw-bold">1. </span> {{ work.title }}</p>
+          
+                <dl class="row">
+                 
+    
+                  <dt class="col-sm-12 secondary-text">Tools & Languages</dt>
+                  <dd class="col-sm-12 secondary-text-light mb-0">
+                    <dl class="row mb-0">
+                      <dt class="col-sm-6 mb-0">
+                        <ul class="mb-0">
+                            {% for tool in work.tools %}
+                                            <li>{{ tool }}</li>
+                                        {% endfor %}
+                        </ul>
+                      </dt>
+                      <dd class="col-sm-6 mb-0">
+                        <ul class="mb-0">
+                          {% for lang in work.language %}
+                                            <li>{{ lang }}</li>
+                                        {% endfor %}
+                        </ul>
+                      </dd>
+                    </dl>
+                  </dd>
+                  <dt class="col-sm-12 secondary-text">Description</dt>
+    
+                  <dd class="col-sm-12 secondary-text-light para">
+                    <p>
+                      {{ work.desc }}
+                            <ul>
+                                {% for point in work.keyPoints %}
+                                    <li>{{ point }}</li>
+                                {% endfor %}
+
+                            </ul>
+                   
+                    </p>
+                  </dd>
+                </dl>
+                <div class="social ">
+                    {% if work.github %}
+                    <a class="mx-3 mb-3" href="{{ work.github }}"
+                      ><i class="fa-brands fa-github"></i
+                    ></a>
+                    {% endif %}
+                {% if work.link %}
+
+                      <a class="mx-3 mb-3" href="{{ work.link }}"
+                      ><i class="fa-solid fa-location-arrow"></i></a>
+                {% endif %}
+                 {% if work.download %}
+
+                      <a class="mx-3 mb-3" href="https://drive.google.com/uc?export=download&id={{ work.download }}"
+                      ><i class="fa-solid fa-download"></i></a>
+                {% endif %}
+                  </div>
+              </div>
+    
+              <div class="col-sm-5 mb-3">
+                <p class="form-text secondary-text-light text-end mb-3 me-4"><i>May, 23 - June, 23</i></p>
+                <div class="img-box me-4 ms-2">
+                  <div class="content">
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                      <div class="carousel-inner">
+                      {% for image in work.images %}
+                                        <div class="carousel-item {% if forloop.first %} active{% endif %} ">
+                                            <img src="https://drive.google.com/uc?export=view&id={{ image }}"
+                                                 class="d-block w-100" alt="...">
+                                        </div>
+                                    {% endfor %}
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>
+                   
+                  </div>
+                  <div class="border-box"></div>
+                </div>
+              
+              </div>
+            </div>
+            <div class="d-flex justify-content-start fade-element">
+                <hr class="seperator">
+            </div>
+       {% endfor %}
+
+          </div>
+
+
+   </section>
+    {% include 'footer.html' %}
+
+
+
+{% endblock %}

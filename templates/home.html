@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <section class="primary-bg fill-y">
+        {% include 'header.html' %}
+        <div class="container my-5 p-5 intro-box fade-element">
+            <div class="container mt-5 box">
+                <p class="primary-text fs-5">Hi, my name is</p>
+                <h1 class="name text-white">
+                    Rocktim Sharma<span class="primary-text fs-1 fw-bold">.</span>
+                </h1>
+                <h1 class="secondary-text-light name">
+                    {{ myInfo.tag }}<span
+                        class="primary-text fs-1 fw-bold"
+                >.</span
+                >
+                </h1>
+                <small class="secondary-text intro my-2 para"
+                >{{ myInfo.intro }}
+                </small>
+                <a href="#contact-sec" class="btn outline-btn my-3">Hire me</a>
+            </div>
+        </div>
+
+        <div class="social floating-social fade-element">
+            <div class="social-group floating-social">
+                {% for social in socials %}
+                    <a class="mx-3 mb-3" href="{{ social.link }}" target="_blank"
+                    ><i class="{{ social.icon }}"></i
+                    ></a>
+                {% endfor %}
+                <div class="bar"></div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end fade-element">
+            <hr class="seperator"/>
+        </div>
+
+        <div class="container my-5  fade-element" id="about-me-sec">
+            <div class="row px-3">
+                <p class="fs-2 primary-text about-me-1 heading">About me</p>
+                <div class="col-sm-4 d-flex justify-content-center mt-3 align-items-center">
+
+                    <div class="">
+
+                        <div class="img-box">
+                            <div class="content">
+                                <img
+                                        src="https://drive.google.com/uc?export=view&id={{ myInfo.image }}"
+                                        class="fade-element img"
+
+                                        alt="..."
+                                />
+                            </div>
+                            <div class="border-box"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-sm-8 my-3 ">
+
+                    <div class="d-flex justify-content-center">
+                        <p class="fs-2 primary-text text-center about-me-2 fw-bold heading">About me</p>
+                    </div>
+
+                    <p class="secondary-text-light para ">
+
+                        {{ myInfo.about|linebreaksbr }}
+                    </p>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-start fade-element">
+            <hr class="seperator"/>
+        </div>
+        <div class="container my-5  fade-element" id="skill-sec">
+            <p class="fs-2 primary-text heading mx-3">My Skills</p>
+            <div class="row px-3 secondary-text">
+                {% for skill in skills %}
+                <div class="col-sm-6 my-3">
+
+                    <div class="skill-bar">
+                        <label class="form-label">{{ skill.skillName }}</label>
+                        <div class="bar">
+                            <div class="progress" data-level="{{ skill.percentage }}%"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end fade-element">
+            <hr class="seperator"/>
+        </div>
+        <div class="container my-5 fade-element">
+            <div class="row px-3">
+                <div class="col-sm-7">
+                    <p class="fs-2 primary-text heading">Recent Work</p>
+                    <dl class="row">
+                        <dt class="col-sm-3 secondary-text">Title</dt>
+                        <dd class="col-sm-9 secondary-text-light para">
+                            {{ recent.title }}
+                        </dd>
+
+                        <dt class="col-sm-3 secondary-text">Tools & Languages</dt>
+                        <dd class="col-sm-9 secondary-text-light">
+                            <dl class="row">
+                                <dt class="col-sm-4">
+                                    <ul>
+                                        {% for tool in recent.tools %}
+                                            <li>{{ tool }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </dt>
+                                <dd class="col-sm-8">
+                                    <ul>
+                                        {% for lang in recent.language %}
+                                            <li>{{ lang }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </dd>
+                        <dt class="col-sm-3 secondary-text">Description</dt>
+
+                        <dd class="col-sm-9 secondary-text-light para">
+                            <p>
+                                {{ recent.desc }}
+                            <ul>
+                                {% for point in recent.keyPoints %}
+                                    <li>{{ point }}</li>
+                                {% endfor %}
+
+                            </ul>
+
+                            </p>
+                        </dd>
+                    </dl>
+                </div>
+
+                <div class="col-sm-5 d-flex justify-content-end align-items-center">
+                    <div class="img-box">
+                        <div class="content">
+                            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+
+                                    {% for image in recent.images %}
+                                        <div class="carousel-item {% if forloop.first %} active{% endif %} ">
+                                            <img src="https://drive.google.com/uc?export=view&id={{ image }}"
+                                                 class="d-block w-100" alt="...">
+                                        </div>
+                                    {% endfor %}
+
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+
+                        </div>
+                        <div class="border-box"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-start mb-4 mt-5">
+            <hr class="seperator"/>
+        </div>
+        <div class="container fade-element" id="contact-sec">
+            <div class="row px-3">
+                <div class="col-sm-6 d-flex align-items-center">
+                    <div class="">
+                        <p class="fs-1 mb-1 primary-text heading">Let's talk</p>
+                        <p class="fs-1 mb-1 primary-text">
+                            <span class="heading">Tell me about your</span> <br/><span
+                                class="heading"
+                        >project</span
+                        ><span class="secondary-text fs-1 fw-bold">.</span>
+                        </p>
+                        <small class="secondary-text-light"
+                        >Lets create something together</small
+                        >
+                        <div class="my-4 mail-box py-2 ps-3 pe-4 primary-text">
+                            Mail me at<br/>
+                            <i class="fa-solid fa-envelope secondary-text"></i>
+                            <span class="secondary-text">{{ myInfo.email }}</span>
+                        </div>
+                        <p class="primary-text fs-5">Follow me on</p>
+                        <div class="social">
+                            {% for social in socials %}
+                                <a class="mx-3 mb-3" href="{{ social.link }}" target="_blank"
+                                ><i class="{{ social.icon }}"></i
+                                ></a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <p class="fs-2 primary-text heading ">
+                        Send a message<span class="secondary-text fs-1 fw-bold">.</span>
+                    </p>
+                    {% if success %}
+                        <div class="alert alert-success p-2 primary-text" role="alert">
+                            We have successfully received your message. Check your email for further updates.
+                        </div>
+                    {% endif %}
+                    {% if fail %}
+                        <div class="alert  p-2 text-danger" role="alert">
+                            Something went wrong.Please try again!
+                        </div>
+                    {% endif %}
+                    <form id="contactForm" method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            {{ form.name }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.email }}
+                            <div id="emailHelp" class="form-text secondary-text-light">
+                                We'll never share your email with anyone else.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            {{ form.message }}
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn fill-btn float-right">
+                                Submit
+                            </button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include 'footer.html' %}
+
+
+
+{% endblock %}
+
