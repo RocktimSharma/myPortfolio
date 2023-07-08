@@ -525,10 +525,12 @@ hr {
     position: relative;
     z-index: 1;
     background-color: #fff;
-    width: calc(100% - 30px);
+    width: calc(100% - 20px);
     /* Other styles for the upper div */
 }
-
+.slideshow-img{
+    max-height: 400px;
+}
 .img-box .border-box {
     position: absolute;
 

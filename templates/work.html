@@ -72,7 +72,7 @@
                                     <div class="carousel-inner">
                                         {% for image in work.images %}
                                             <div class="carousel-item {% if forloop.first %} active{% endif %} ">
-                                                <img src="https://drive.google.com/uc?export=view&id={{ image }}"
+                                                <img class="slideshow-img" src="https://drive.google.com/uc?export=view&id={{ image }}"
                                                      class="d-block w-100" alt="...">
                                             </div>
                                         {% endfor %}
