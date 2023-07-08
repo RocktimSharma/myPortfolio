@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    <title>Under Maintenance</title>
+{% endblock %}
+{% block content %}
+    <section class="primary-bg fill-y d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm d-flex justify-content-center align-items-center p-2">
+                    <img class="error-icon" src={% static 'img/error.gif' %}>
+                </div>
+                <div class="col-sm fw-bold d-flex justify-content-center align-items-center">
+                    <div>
+                        <p class="primary-text error-heading mb-0">Error</p>
+                        <p class=" fs-2 secondary-text mb-0">OOPS! PAGE NOT FOUND</p>
+                        <small class="secondary-text-light para">
+                            Sorry, the page you are looking for does not exists, have been removed, name changed or is
+                            currently unavailable.
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
