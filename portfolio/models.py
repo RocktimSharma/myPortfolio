@@ -6,10 +6,8 @@ from django.db import models
 
 class Works(models.Model):
     title = models.CharField(max_length=100, blank=False)
-    startDate = models.DateField(blank=False)
+    timePeriod = models.CharField(blank=False,max_length=50)
     pin=models.BooleanField(blank=True,default=False)
-    endDate = models.DateField(blank=True)
-    isOngoing = models.BooleanField(blank=True, default=True)
     desc = models.TextField(blank=False)
     images = models.TextField(blank=False)
     tools = models.TextField(blank=False)
