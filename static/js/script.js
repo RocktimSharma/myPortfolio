@@ -1,3 +1,4 @@
+/* ----------------------------------For Index------------------------------------------------*/
 $(".anim-line1").on("animationend", removeBorder);
 
 function removeBorder() {
@@ -81,15 +82,15 @@ $(document).ready(function () {
     $('#current-month').text(month);
     $('#timezone').text(timezone);
 
+    /* ----------------------------------Skill------------------------------------------------*/
+    $(".progress").each(function () {
+        var level = $(this).data("level");
 
-      $(".progress").each(function() {
-    var level = $(this).data("level");
+        $(this).width(level)
 
-    $(this).width(level)
+    });
 
-  });
-
-
+    /* ----------------------------------Scroll Animation------------------------------------------------*/
     const fadeElements = $('.fade-element');
 
     function handleScroll() {
@@ -121,7 +122,7 @@ $(document).ready(function () {
     $(window).scroll(handleScroll);
 });
 
-
+/* ----------------------------------Form Submit------------------------------------------------*/
 $(document).ready(function () {
     // Prevent form submission on button click
     $('#contactForm').submit(function (event) {

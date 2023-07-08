@@ -1,145 +1,74 @@
 {% load static %}
-  <nav class="navbar navbar-expand-lg sticky-top primary-bg">
-        <div class="container-fluid nav-container">
-          <a
-            class="navbar-brand primary-text underline-animation name"
-            href="#"
-          >
-            <img
-              src="{% static 'img/logo.png'%}"
-              alt="Logo"
-              width="30"
-              height="30"
-              class="d-inline-block align-text-top"
-            />
+<nav class="navbar navbar-expand-lg sticky-top primary-bg">
+    <div class="container-fluid nav-container">
+        <a class="navbar-brand primary-text underline-animation name" href="#">
+            <img src="{% static 'img/logo.png' %}" alt="Logo" width="30" height="30"
+                 class="d-inline-block align-text-top"/>
             ROCKTIM SHARMA
-          </a>
-          <button
-            class="navbar-toggler secondary-text"
-            type="button"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar"
-          >
+        </a>
+        <button class="navbar-toggler secondary-text" type="button" aria-expanded="false" aria-label="Toggle navigation"
+                data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
             <i class="fa-solid fa-bars"></i>
-          </button>
-
-          <div
-            class="offcanvas offcanvas-start custom-offcanvas primary-bg"
-            tabindex="-1"
-            id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel"
-          >
+        </button>
+        <div class="offcanvas offcanvas-start custom-offcanvas primary-bg" tabindex="-1" id="offcanvasNavbar"
+             aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-              <h5
-                class="offcanvas-title secondary-text"
-                id="offcanvasNavbarLabel"
-              >
-                Menu
-              </h5>
-              <button
-                type="button"
-                class="btn close-nav"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              >
-                <i class="fa-solid fa-x"></i>
-              </button>
+                <h5 class="offcanvas-title secondary-text" id="offcanvasNavbarLabel">Menu</h5>
+                <button type="button" class="btn close-nav" data-bs-dismiss="offcanvas" aria-label="Close">
+                    <i class="fa-solid fa-x"></i>
+                </button>
             </div>
             <div class="offcanvas-body">
-              <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-                <li class="nav-item">
-                  <a
-                    class="nav-link underline-animation active secondary-text-light"
-                    aria-current="page"
-                    href="/home"
-                    >Home</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a href="/works"
-                    class="nav-link underline-animation secondary-text-light"
-
-                    >Works</a
-                  >
-                </li>
-
-                <li class="nav-item disabled">
-                  <a class="nav-link disabled secondary-text-light"
-                    >Blog</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a href="/home#skill-sec" class="nav-link underline-animation secondary-text-light"
-                    >My Skills</a
-                  >
-                </li>
-
-                <li class="nav-item">
-                  <a href="/home#contact-sec" class="nav-link underline-animation secondary-text-light"
-                    >Contact</a
-                  >
-                </li>
-
-              </ul>
-              <p class="primary-text fs-5 ms-auto mt-5">Follow me on</p>
-              <div class="social d-flex justify-content-center">
-           {% for social in socials %}
-                            <a class="mx-3 mb-3" href="{{ social.link }}" target="_blank"
-                            ><i class="{{ social.icon }}"></i
-                            ></a>
-                          {% endfor %}
-
-
-              </div>
-              <small class="text-center secondary-text mb-0 position-absolute bottom-0 mb-3">
-                © 2023 Copyright:<a class="primary-text underline-animation"
-                  >Rocktim Sharma</a
-                >
-              </small>
+                <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link underline-animation active secondary-text-light" aria-current="page"
+                           href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/works" class="nav-link underline-animation secondary-text-light">Works</a>
+                    </li>
+                    <li class="nav-item disabled">
+                        <a class="nav-link disabled secondary-text-light">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/home#skill-sec" class="nav-link underline-animation secondary-text-light">My
+                            Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/home#contact-sec"
+                           class="nav-link underline-animation secondary-text-light">Contact</a>
+                    </li>
+                </ul>
+                <p class="primary-text fs-5 ms-auto mt-5">Follow me on</p>
+                <div class="social d-flex justify-content-center">
+                    {% for social in socials %}
+                        <a class="mx-3 mb-3" href="{{ social.link }}" target="_blank"><i class="{{ social.icon }}"></i></a>
+                    {% endfor %}
+                </div>
+                <small class="text-center secondary-text mb-0 position-absolute bottom-0 mb-3">
+                    © 2023 Copyright:<a class="primary-text underline-animation">Rocktim Sharma</a>
+                </small>
             </div>
-          </div>
-
-          <div
-            class="collapse custom-collapse navbar-collapse"
-            id="navbarSupportedContent"
-          >
-            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-              <li class="nav-item">
-                <a
-                  class="nav-link underline-animation active secondary-text-light"
-                  aria-current="page"
-                  href="/home"
-                  >Home</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link underline-animation secondary-text-light"
-                  href="/works"
-                  >Works</a
-                >
-              </li>
-
-              <li class="nav-item disabled">
-                <a class="nav-link disabled secondary-text-light"
-                  >Blog</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="/home#skill-sec" class="nav-link underline-animation secondary-text-light"
-                  >My Skills</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="/home#contact-sec" class="nav-link underline-animation secondary-text-light"
-                  >Contact</a
-                >
-              </li>
-
-            </ul>
-          </div>
         </div>
-      </nav>
+        <div class="collapse custom-collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link underline-animation active secondary-text-light" aria-current="page"
+                       href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link underline-animation secondary-text-light" href="/works">Works</a>
+                </li>
+                <li class="nav-item disabled">
+                    <a class="nav-link disabled secondary-text-light">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/home#skill-sec" class="nav-link underline-animation secondary-text-light">My Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/home#contact-sec" class="nav-link underline-animation secondary-text-light">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

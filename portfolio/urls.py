@@ -7,3 +7,4 @@ urlpatterns = [
     path('works/', views.allWorks, name='works'),                 # Projects Path
 
 ]
+
