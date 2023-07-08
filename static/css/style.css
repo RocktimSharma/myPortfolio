@@ -529,6 +529,7 @@ hr {
     /* Other styles for the upper div */
 }
 .slideshow-img{
+    width: 100%;
     max-height: 400px;
 }
 .img-box .border-box {
