@@ -143,7 +143,7 @@ STATICFILES_DIRS=[
 
 
 # Following settings only make sense on production and may break development environments.
-if not DEBUG:
+if DEBUG:
     # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
