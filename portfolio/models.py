@@ -4,10 +4,10 @@ from django.db import models
 from django.db import models
 
 
-class Works(models.Model):
+class Projects(models.Model):
     title = models.CharField(max_length=100, blank=False)
-    timePeriod = models.CharField(blank=True,null=True,max_length=50)
-    pin=models.BooleanField(blank=True,default=False)
+    timePeriod = models.CharField(blank=True, null=True, max_length=50)
+    pin = models.BooleanField(blank=True, default=False)
     desc = models.TextField(blank=False)
     images = models.TextField(blank=False)
     tools = models.TextField(blank=False)
@@ -16,6 +16,7 @@ class Works(models.Model):
     link = models.URLField(blank=True)
     github = models.URLField(blank=True)
     download = models.URLField(blank=True)
+
 
 
 class Social(models.Model):

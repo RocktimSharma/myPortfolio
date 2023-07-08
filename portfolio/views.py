@@ -2,7 +2,7 @@
 from django.shortcuts import render
 from .forms import *
 from django.core.mail import mail_admins, EmailMessage
-from .admin import Social, Works, MyInfo, Skills
+from .admin import Social, Projects, MyInfo, Skills
 
 from django.template import RequestContext
 
@@ -23,17 +23,17 @@ def home(request):
         return render(request, 'error.html')
 
     try:
-        recentWork = Works.objects.filter(pin=True).first()
-        images = recentWork.images.split(',')
-        tools = recentWork.tools.split(',')
-        lang = recentWork.language.split(',')
-        points = recentWork.keyPoints.replace('\r', '\n').split('\n\n\n')
-        recentWork.images = images
-        recentWork.tools = tools
-        recentWork.language = lang
-        recentWork.keyPoints = points
+        recentproject = Projects.objects.filter(pin=True).first()
+        images = recentproject.images.split(',')
+        tools = recentproject.tools.split(',')
+        lang = recentproject.language.split(',')
+        points = recentproject.keyPoints.replace('\r', '\n').split('\n\n\n')
+        recentproject.images = images
+        recentproject.tools = tools
+        recentproject.language = lang
+        recentproject.keyPoints = points
     except:
-        recentWorks = Works.objects.all().first()
+        recentprojects = Projects.objects.all().first()
 
     if request.method == 'POST':  # Checking if the request method is POST
         form = ContactForm(request.POST)
@@ -64,30 +64,30 @@ def home(request):
 
             return render(request, 'home.html',
                           context={'form': form, 'success': success, 'fail': fail, 'socials': socials,
-                                   'myInfo': myInfo[0], 'recent': recentWork, 'skills': skills})
+                                   'myInfo': myInfo[0], 'recent': recentproject, 'skills': skills})
 
     else:
         form = ContactForm()  # Initializing ContactForm class
         return render(request, 'home.html',
-                      context={'form': form, 'socials': socials, 'myInfo': myInfo[0], 'recent': recentWork,
+                      context={'form': form, 'socials': socials, 'myInfo': myInfo[0], 'recent': recentproject,
                                'skills': skills})
 
 
 # ----------------------------------------Method to render Certificate Page------------------------------------------- #
 def allWorks(request):
-    works = Works.objects.all()
-    if not works:
+    projects = Projects.objects.all()
+    if not projects:
         return render(request, 'error.html')
-    for work in works:
-        images = work.images.split(',')
-        tools = work.tools.split(',')
-        lang = work.language.split(',')
-        points = work.keyPoints.replace('\r', '\n').split('\n\n\n')
-        work.images = images
-        work.tools = tools
-        work.language = lang
-        work.keyPoints = points
-    return render(request, 'work.html', context={'works': works})
+    for project in projects:
+        images = project.images.split(',')
+        tools = project.tools.split(',')
+        lang = project.language.split(',')
+        points = project.keyPoints.replace('\r', '\n').split('\n\n\n')
+        project.images = images
+        project.tools = tools
+        project.language = lang
+        project.keyPoints = points
+    return render(request, 'work.html', context={'works': projects})
 
 
 def error_400(request, *args, **kwargs):
