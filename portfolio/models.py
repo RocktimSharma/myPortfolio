@@ -6,7 +6,7 @@ from django.db import models
 
 class Works(models.Model):
     title = models.CharField(max_length=100, blank=False)
-    timePeriod = models.CharField(blank=False,max_length=50)
+    timePeriod = models.CharField(blank=True,null=True,max_length=50)
     pin=models.BooleanField(blank=True,default=False)
     desc = models.TextField(blank=False)
     images = models.TextField(blank=False)
