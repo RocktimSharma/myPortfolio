@@ -27,10 +27,11 @@ SECRET_KEY = 'django-insecure-u5or57qk$n!6-5c6!+4fr7k3ell#vk5z3ze!son$buh=eub#px
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://rocktimsharma.onrender.com']
 
 
 # Application definition
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
