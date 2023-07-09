@@ -22,10 +22,26 @@ function runClick() {
 }
 
 $(document).ready(function () {
+
+    /*---------------------------------------------- Tab Active ----------------------------------------------------*/
+
+    var currentURL = window.location.href;
+
+
+    if (currentURL.indexOf("/works") !== -1) {
+        $('a[href="/works"]').addClass("active");
+    } else if (currentURL.indexOf("/home#contact-sec") !== -1) {
+        $('a[href="/home#contact-sec"]').addClass("active");
+    } else if (currentURL.indexOf("/home#skill-sec") !== -1) {
+        $('a[href="/home#skill-sec"]').addClass("active");
+    } else {
+        $('a[href="/home"]').addClass("active");
+    }
+
+    /*--------------------------------------------------Index Page ----------------------------------------------------*/
     // Get the current date and time
     var currentDate = new Date();
 
-    // Define the messages for different times of the day
     var morningMessage = "Good Morning!";
     var afternoonMessage = "Good Afternoon!";
     var eveningMessage = "Good Evening!";
