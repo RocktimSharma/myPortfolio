@@ -75,7 +75,7 @@ def home(request):
 
 # ----------------------------------------Method to render Certificate Page------------------------------------------- #
 def allWorks(request):
-    projects = Projects.objects.all().order_by('order').values()
+    projects = Projects.objects.all().order_by('order')
     if not projects:
         return render(request, 'error.html')
     for project in projects:
