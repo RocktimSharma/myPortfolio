@@ -2,10 +2,11 @@ from django.db import models
 
 # Create your models here.
 from django.db import models
-
+#python manage.py migrate --run-syncdb
 
 class Projects(models.Model):
     title = models.CharField(max_length=100, blank=False)
+    order=models.IntegerField(blank=True,default=0)
     timePeriod = models.CharField(blank=True, null=True, max_length=50)
     pin = models.BooleanField(blank=True, default=False)
     desc = models.TextField(blank=False)
