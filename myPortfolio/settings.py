@@ -25,7 +25,7 @@ environ.Env.read_env()
 SECRET_KEY = 'django-insecure-u5or57qk$n!6-5c6!+4fr7k3ell#vk5z3ze!son$buh=eub#px'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['rocktimsharma.onrender.com','rocktimsharma.me','www.rocktimsharma.me','127.0.0.1']
 
@@ -143,7 +143,7 @@ STATICFILES_DIRS=[
 
 
 # Following settings only make sense on production and may break development environments.
-if DEBUG:
+if not DEBUG:
     # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
