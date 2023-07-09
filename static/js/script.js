@@ -26,8 +26,6 @@ $(document).ready(function () {
     /*---------------------------------------------- Tab Active ----------------------------------------------------*/
 
     var currentURL = window.location.href;
-
-
     if (currentURL.indexOf("/works") !== -1) {
         $('a[href="/works"]').addClass("active");
     } else if ((currentURL.indexOf("/home/#contact-sec") !== -1) || ($('#contact-sec').offset().top <= $(window).scrollTop())) {
