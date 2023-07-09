@@ -30,9 +30,9 @@ $(document).ready(function () {
 
     if (currentURL.indexOf("/works") !== -1) {
         $('a[href="/works"]').addClass("active");
-    } else if (currentURL.indexOf("/home#contact-sec") !== -1) {
+    } else if ((currentURL.indexOf("/home/#contact-sec") !== -1) || ($('#contact-sec').offset().top <= $(window).scrollTop())) {
         $('a[href="/home#contact-sec"]').addClass("active");
-    } else if (currentURL.indexOf("/home#skill-sec") !== -1) {
+    } else if ((currentURL.indexOf("/home/#skill-sec") !== -1) || ($('#skill-sec').offset().top <= $(window).scrollTop())) {
         $('a[href="/home#skill-sec"]').addClass("active");
     } else {
         $('a[href="/home"]').addClass("active");
